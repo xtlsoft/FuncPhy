@@ -1,0 +1,21 @@
+{
+    "name": "xtlsoft/funcphy",
+    "description": "Cloud Functions in PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tianle Xu",
+            "email": "xtl@xtlsoft.top"
+        }
+    ],
+    "require": {
+        "workerman/workerman": "^3.5",
+        "ramsey/uuid": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "FuncPhy\\" : "./src/"
+        }
+    }
+}
