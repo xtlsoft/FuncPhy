@@ -12,7 +12,36 @@
 
     class Runner {
 
-        public function run($name, $method = "__invoke", $parameters = []){
+        protected $name;
+
+        public function __construct($name){
+
+            $this->name = $name;
+
+        }
+
+        public function call($method = "__invoke", $parameters = [], $context = null){
+
+            $id = (string) \Ramsey\Uuid\Uuid::uuid4();
+
+            if($context === null) $context = new Context;
+
+            $a = [
+                $context->
+                    setCallId($id)
+            ];
+
+            $parameters = array_merge($a, $parameters);
+
+            return [
+                "id" => $id,
+                "context" => $context,
+                "result" => self::run($this->name, $method, $parameters)
+            ];
+
+        }
+
+        public static function run($name, $method = "__invoke", $parameters = []){
 
             $class = Manager::get($name);
 

@@ -13,10 +13,21 @@
     class Manager {
 
         protected static $functions = [];
+        protected static $globalContext = null;
+
+        public static function getContext(){
+
+            return self::$globalContext;
+
+        }
+
+        public static function __init__(){
+            self::$globalContext = new GlobalContext;
+        }
 
         public static function add($name, $class){
 
-            self::$functions[$name] = new $class;
+            self::$functions[$name] = new $class (clone self::$globalContext, $name);
 
             return $name;
 
@@ -39,3 +50,5 @@
         }
 
     }
+
+    Manager::__init__();

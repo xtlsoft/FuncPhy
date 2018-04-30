@@ -5,19 +5,19 @@
 
     class Application extends \FuncPhy\Framework {
 
-        public function testFunc($test){
+        public function testFunc($ctx, $test){
 
-            return ("hello" . $test);
+            return ("hello" . $test . $ctx->getCallId());
 
         }
 
-        public function __invoke(){
+        public function __invoke($ctx){
             
             return 123;
 
         }
 
-        public function jsonEncoder($data){
+        public function jsonEncoder($ctx, $data){
 
             return json_encode($data, \JSON_PRETTY_PRINT);
 
