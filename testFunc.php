@@ -1,7 +1,7 @@
 <?php
 
-    $ins = new \FuncPhy\Instance();
-    eval($ins->getHeader());
+    namespace _FUNCPHY_NAMESPACE_;
+    $ins = @@@GetInstanceVariable();
 
     class Application extends \FuncPhy\Framework {
 

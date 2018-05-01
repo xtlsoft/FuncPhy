@@ -22,9 +22,9 @@
 
         }
 
-        public function getHeader(){
+        public function getNamespace(){
 
-            return "namespace FuncPhy\\Instances\\Temp\\T" . sha1($this->name) . ";";
+            return "FuncPhy\\Instances\\Temp\\T" . sha1($this->name);
 
         }
 
